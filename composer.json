@@ -1,0 +1,29 @@
+{
+  "name": "vendor_name/package_name",
+  "description": "description_text",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "author's name",
+      "email": "email@example.com"
+    }
+  ],
+  "repositories": [
+      {
+        "type": "vcs",
+        "url": "https://github.com/ibelar/atk-wordpress"
+      }
+    ],
+  "require": {
+    "atk-wordpress": "dev-master"
+  },
+  "config": {
+    "autoloader-suffix": "atksample",
+    "prepend-autoloader": false
+  },
+  "autoload": {
+    "psr-4": {
+      "atksample\\" : "src/"
+    }
+  }
+}
