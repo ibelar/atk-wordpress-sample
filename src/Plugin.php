@@ -44,7 +44,6 @@ class Plugin extends \atkwp\AtkWp implements \atkwp\interfaces\Pluggable
 	{
 		global $wpdb;
 		$this->dbTables['event']  = $wpdb->prefix.__NAMESPACE__.'_event';
-        $this->dbTables['country']  = $wpdb->prefix.__NAMESPACE__.'_event';
 	}
 
 	public function getDbTableName($table)
