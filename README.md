@@ -6,3 +6,4 @@ This wordpress plugin is done using Agile Toolkit and the Agile Toolkit integrat
 
  - Download this repositories in your Wordpress installation plugins folder;
  - Run composer update;
+ - Visit you Wordpress plugin page and activate it.
