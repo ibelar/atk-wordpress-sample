@@ -1,5 +1,4 @@
 {
-  "name": "vendor_name/package_name",
   "description": "description_text",
   "license": "proprietary",
   "authors": [
@@ -10,11 +9,10 @@
   ],
   "repositories": [
       {
-        "type": "vcs",
-        "url": "https://github.com/ibelar/atk-wordpress"
+        "type": "path",
+        "url": "/Users/abelair/Dev-Prod/atk-wordpress"
       }
     ],
-  "minimum-stability": "dev",
   "require": {
     "atk-wordpress": "dev-master"
   },

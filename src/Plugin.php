@@ -7,8 +7,10 @@
 
 namespace atksample;
 
+use atkwp\interfaces\PluginInterface;
+use atkwp\AtkWp;
 
-class Plugin extends \atkwp\AtkWp implements \atkwp\interfaces\Pluggable
+class Plugin extends AtkWp implements PluginInterface
 {
 	public $dbTables = [];
 
@@ -17,13 +19,6 @@ class Plugin extends \atkwp\AtkWp implements \atkwp\interfaces\Pluggable
 		$this->setDbConnection();
 		$this->setDbTables();
 	}
-
-	public function boot()
-	{
-		parent::boot();
-	}
-
-
 
 	public function activatePlugin()
 	{

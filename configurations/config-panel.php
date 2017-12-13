@@ -43,12 +43,12 @@ $config['panel']['event'] =  [  'type'  => 'panel',
                                 'page'  => 'Event',
                                 'menu'  => 'Event',
                                 'slug'  => 'event-index',
-                                'uses'  => __NAMESPACE__ . '\\panel\\Event',
+                                'uses'  => __NAMESPACE__ . '\\panels\\Event',
                                 'capabilities' => 'manage_options',
 								'position' => null,
-	/*'icon'  =>  'images/sc-icon.png',*/
-	                            'js'     => [],
-	                            'css'    => []
+	                            'icon'  =>  'images/sc-icon.png',
+	                            'js'     => ['test'],
+	                            'css'    => [],
 ];
 
 $config['panel']['option'] =  [  'type'  => 'sub-panel',
@@ -56,11 +56,10 @@ $config['panel']['option'] =  [  'type'  => 'sub-panel',
                                  'page'  => 'Option',
                                  'menu'  => 'Option',
                                  'slug'  => 'option-index',
-                                 'uses'  => __NAMESPACE__ . '\\panel\\event\\Option',
+                                 'uses'  => __NAMESPACE__ . '\\panels\\event\\Option',
                                  'capabilities' => 'manage_options',
-	/*'icon'  =>  'images/sc-icon.png',*/
 	                             'js'   => [],
 	                             'js-inc' =>['wp-color-picker'],
 	                             'css-inc' => ['wp-color-picker'],
-	                             'css'   => []
+	                             'css'   => [],
 ];
