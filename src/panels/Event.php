@@ -15,6 +15,11 @@ class Event extends PanelComponent
 	{
 		parent::init();
 
+        $msg = $this->add([
+            'Message',
+            'Agile Toolkit for Wordpress!',
+        ]);
+
 		$m = new models\Event($this->app->plugin->getDbConnection(), ['table' => $this->app->plugin->getDbTableName('event')]);
 		$v = $this->add(new View(['ui' => 'segment']));
 		$c = $v->add(['CRUD', 'notify' => new \atk4\ui\jsNotify(['content'=>'Data saved'], $this)]);
