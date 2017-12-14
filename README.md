@@ -1,9 +1,11 @@
 # Atk-wordpress sample plugin
 
-This wordpress plugin is done using Agile Toolkit and the Agile Toolkit integration for Wordpress.
+This Wordpress plugin is done using Agile Toolkit and the Agile Toolkit integration for Wordpress.
 
 ## Install
 
- - Download this repositories in your Wordpress installation plugins folder;
+ - Download or clone this repository in your Wordpress installation plugins folder;
  - Run composer update;
- - Visit you Wordpress plugin page and activate it.
+ - Visit you Wordpress plugin page in admin section and activate it.
+ 
+ For more information visit [atk-wordpress](https://github.com/ibelar/atk-wordpress).
