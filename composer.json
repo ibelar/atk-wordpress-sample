@@ -1,20 +1,13 @@
 {
-  "description": "description_text",
-  "license": "proprietary",
+  "description": "Wordpress sample plugin",
+  "license": "MIT",
   "authors": [
     {
-      "name": "author's name",
-      "email": "email@example.com"
+      "name": "Alain Belair"
     }
   ],
-  "repositories": [
-      {
-        "type": "path",
-        "url": "/Users/abelair/Dev-Prod/atk-wordpress"
-      }
-    ],
   "require": {
-    "atk-wordpress": "dev-master"
+    "ibelar/atk-wordpress": "^1.0"
   },
   "config": {
     "autoloader-suffix": "atksample",
