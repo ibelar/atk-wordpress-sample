@@ -35,9 +35,14 @@ class EventWidget extends WidgetComponent implements WidgetInterface
 
         $r = $m->tryLoadAny()->setLimit($instance['event_number']);
 
+        $rows = 0;
         $ul = $view->add(new View(['element' => 'ul']));
         foreach ($r as $key => $event) {
             $ul->add(new View(['element' => 'li', 'content' => $event['name']]));
+            $rows++;
+        }
+        if (!$rows) {
+            $ul->add(new View(['element' => 'li', 'content' => 'No event to display!']));
         }
 
         return $view;
