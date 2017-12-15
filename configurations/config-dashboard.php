@@ -22,7 +22,7 @@
 namespace atksample;
 
 $config['dashboard']['dash-event'] = [
-    'uses'          =>  __NAMESPACE__ . '\dashboards\EventDisplayDashboard',
-    'title'         => _('Atk4wp Event'),
+    'uses'          =>  __NAMESPACE__ . '\dashboards\EventDashboard',
+    'title'         => _('Latest Event'),
     'configureMode' =>  true,
 ];

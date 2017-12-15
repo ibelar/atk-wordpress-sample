@@ -19,7 +19,6 @@ if (array_search(ABSPATH . 'wp-admin/includes/plugin.php', get_included_files())
 	require_once ABSPATH . 'wp-admin/includes/plugin.php';
 }
 
-
 $atk_plugin_name = "myplugin";
 $atk_plugin = __NAMESPACE__."\\Plugin";
 

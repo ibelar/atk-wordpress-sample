@@ -9,7 +9,7 @@ use atk4\ui\View;
 use atksample\models;
 use atkwp\components\PanelComponent;
 
-class Event extends PanelComponent
+class EventPanel extends PanelComponent
 {
 	public function init()
 	{

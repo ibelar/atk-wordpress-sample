@@ -10,7 +10,7 @@ use atksample\models;
 use atkwp\components\DashboardComponent;
 use atkwp\models\Options;
 
-class EventDisplayDashboard extends DashboardComponent
+class EventDashboard extends DashboardComponent
 {
     public $fieldName = 'atksample-dash-eventNum';
     public $eventNumberField;
@@ -21,17 +21,17 @@ class EventDisplayDashboard extends DashboardComponent
     {
         parent::init();
 
-        $this->optionModel = new Options($this->app->getDbConnection());
+        $this->optionModel = new Options($this->app->plugin->getDbConnection());
         $this->options = $this->optionModel->getOptionValue('atk4wp-event-options', null);
 
-        $this->eventNumberField = new \atkwp\ui\Input(
+        $this->eventNumberField = new \atkwp\ui\WpInput(
             [
-                'fieldName'       => $this->fieldName,
-                'id'              => $this->fieldName,
-                'value'           => ($this->options[$this->fieldName]) ? $this->options[$this->fieldName] : 2,
-                'content'         => 'How many events to display:',
-                'inputType'       => 'number',
-                'inputCssClass'   => 'tiny-text',
+                'field_name' => $this->fieldName,
+                'field_id'   => $this->fieldName,
+                'value'      => ($this->options[$this->fieldName]) ? $this->options[$this->fieldName] : 2,
+                'label'      => 'How many events to display:',
+                'type'       => 'number',
+                'css'        => 'tiny-text',
             ]
         );
 
@@ -45,12 +45,9 @@ class EventDisplayDashboard extends DashboardComponent
     public function doDisplayMode()
     {
         $m = new models\Event($this->app->plugin->getDbConnection(), ['table' => $this->app->plugin->getDbTableName('event')]);
-        $r = $m->tryLoadAny()->setLimit($this->options[$this->fieldName]);
+        $m->tryLoadAny()->setOrder('date', 'DESC')->setLimit($this->options[$this->fieldName]);
 
-        $ul = $this->add(new View(['element' => 'ul']));
-        foreach ($r as $key => $event) {
-            $ul->add(new View(['element' => 'li', 'content' => $event['name']]));
-        }
+        $this->add('Table')->setModel($m);
     }
 
     public function doConfigureMode()

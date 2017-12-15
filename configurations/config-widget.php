@@ -22,7 +22,7 @@
 namespace atksample;
 
 $config['widget']['atksample-event'] = [
-    'uses'          =>  __NAMESPACE__.'\widgets\Event',
+    'uses'          =>  __NAMESPACE__.'\widgets\EventWidget',
     'title'         => _('Atk4wp Event'),
     'widget_ops'    => ['classname' =>'at4wp-wdg', 'description' => 'Display Atk4wp event\'s name'],
 ];

@@ -1,6 +1,6 @@
 <?php
 /**
- * Create a Widget that display Event.
+ * Create a Widget that display Event from event table.
  */
 
 namespace atksample\widgets;
@@ -8,9 +8,9 @@ namespace atksample\widgets;
 use atk4\ui\View;
 use atkwp\components\WidgetComponent;
 use atkwp\interfaces\WidgetInterface;
-use atkwp\ui\Input;
+use atkwp\ui\WpInput;
 
-class Event extends WidgetComponent implements WidgetInterface
+class EventWidget extends WidgetComponent implements WidgetInterface
 {
 
     /**
@@ -28,8 +28,11 @@ class Event extends WidgetComponent implements WidgetInterface
     {
         $m = new \atksample\models\Event($view->app->plugin->getDbConnection(), ['table' => $view->app->plugin->getDbTableName('event')]);
         if ($instance['has_chk']) {
-            $m->setOrder('name');
+            $m->setOrder('date', 'DESC');
+        } else {
+            $m->setOrder('id', 'DESC');
         }
+
         $r = $m->tryLoadAny()->setLimit($instance['event_number']);
 
         $ul = $view->add(new View(['element' => 'ul']));
@@ -60,38 +63,38 @@ class Event extends WidgetComponent implements WidgetInterface
         $chk = $instance['has_chk'];
 
         $view->add(
-            new Input(
+            new WpInput(
                 [
-                    'fieldName' => $this->get_field_name('title'),
-                    'id'        => $this->get_field_id('title'),
-                    'value'     => $title,
-                    'content'   => 'Title:',
+                    'field_name' => $this->get_field_name('title'),
+                    'field_id'   => $this->get_field_id('title'),
+                    'value'      => $title,
+                    'label'      => 'Title:',
                 ]
             )
         );
 
         $view->add(
-            new Input(
+            new WpInput(
                 [
-                    'fieldName'       => $this->get_field_name('event_number'),
-                    'id'              => $this->get_field_id('event_number'),
-                    'inputType'       => 'number',
-                    'value'           => $event,
-                    'content'         => 'Number of Event:',
-                    'inputCssClass'   => 'tiny-text',
+                    'field_name' => $this->get_field_name('event_number'),
+                    'field_id'   => $this->get_field_id('event_number'),
+                    'type'       => 'number',
+                    'value'      => $event,
+                    'label'      => 'Number of Event:',
+                    'css'        => 'tiny-text',
                 ]
             )
         );
 
         $view->add(
-            new Input(
+            new WpInput(
                 [
-                    'fieldName'       => $this->get_field_name('has_chk'),
-                    'id'              => $this->get_field_id('has_chk'),
-                    'inputType'       => 'checkbox',
-                    'value'           => $chk,
-                    'content'         => 'Sort by Name',
-                    'inputCssClass'   => 'checkbox',
+                    'field_name' => $this->get_field_name('has_chk'),
+                    'field_id'   => $this->get_field_id('has_chk'),
+                    'type'       => 'checkbox',
+                    'value'      => $chk,
+                    'label'      => 'Display by Date',
+                    'css'        => 'checkbox',
                 ]
             )
         );
