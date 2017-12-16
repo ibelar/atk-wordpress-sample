@@ -14,7 +14,7 @@ class OptionSubPanel extends PanelComponent
 	public function init()
     {
 		parent::init();
-        $optionModel = new Options($this->app->getDbConnection());
+        $optionModel = new Options($this->getDbConnection());
         $options = $optionModel->getOptionValue('atk4wp-event-options', null);
 
         $form = $this->add(new \atk4\ui\Form('segment'));

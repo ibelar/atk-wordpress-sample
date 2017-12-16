@@ -13,7 +13,7 @@
  *  'uses'            => (string)(Required) The widget class to use. The class must extends atkWp\components\WidgetComponent
  *						    Ex: 'uses' =>  __NAMESPACE__ . '\widgets\EventWidget'
  *
- *  'title'           => (string)(Required) A string that hold the title of the widget as it appear in the admin area.
+ *  'title'           => (string)(Required) A string that hold the title or name of the widget as it appear in the admin area.
  *
  *  'widget_ops'      => (array)(Optional)  An array that hold widget option as defined in Wordpress widget options.
  *
@@ -21,8 +21,8 @@
 
 namespace atksample;
 
-$config['widget']['atksample-event'] = [
+$config['widget']['event'] = [
     'uses'          =>  __NAMESPACE__.'\widgets\EventWidget',
-    'title'         => _('Atk4wp Event'),
-    'widget_ops'    => ['classname' =>'at4wp-wdg', 'description' => 'Display Atk4wp event\'s name'],
+    'title'         => _('Monthly Events'),
+    'widget_ops'    => ['classname' =>'', 'description' => 'Display current month events'],
 ];

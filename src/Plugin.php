@@ -30,6 +30,11 @@ class Plugin extends AtkWp implements PluginInterface
 		// TODO: Implement deactivatePlugin() method.
 	}
 
+	public function uninstallPlugin()
+    {
+
+    }
+
 	public function setDbTables()
 	{
 		global $wpdb;

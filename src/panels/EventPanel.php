@@ -20,7 +20,7 @@ class EventPanel extends PanelComponent
             'Agile Toolkit for Wordpress!',
         ]);
 
-		$m = new models\Event($this->app->plugin->getDbConnection(), ['table' => $this->app->plugin->getDbTableName('event')]);
+		$m = new models\Event($this->getDbConnection(), ['table' => $this->getPluginInstance()->getDbTableName('event')]);
 		$v = $this->add(new View(['ui' => 'segment']));
 		$c = $v->add(['CRUD', 'notify' => new \atk4\ui\jsNotify(['content'=>'Data saved'], $this)]);
 		$c->setModel($m);

@@ -16,6 +16,7 @@ class EventWidget extends WidgetComponent implements WidgetInterface
     /**
      * Create view to display inside widget in WP frontend.
      *
+     *
      * @param View $view
      * @param array $instance
      *
@@ -26,23 +27,33 @@ class EventWidget extends WidgetComponent implements WidgetInterface
      */
     public function onWidget(View $view, $instance)
     {
-        $m = new \atksample\models\Event($view->app->plugin->getDbConnection(), ['table' => $view->app->plugin->getDbTableName('event')]);
+        $date = new \DateTime();
+
+        $m = new \atksample\models\Event($view->app->plugin->getDbConnection(), ['table' => $view->getPluginInstance()->getDbTableName('event')]);
         if ($instance['has_chk']) {
-            $m->setOrder('date', 'DESC');
+            $m->setOrder('date');
         } else {
             $m->setOrder('id', 'DESC');
         }
+
+        // get current month and date event.
+        $m->addCondition($m->expr('Month(date) = [current_month] AND Year(date) = [current_year]',
+            [
+                'current_month' => $date->format('m'),
+                'current_year'  => $date->format('Y'),
+            ]));
+
 
         $r = $m->tryLoadAny()->setLimit($instance['event_number']);
 
         $rows = 0;
         $ul = $view->add(new View(['element' => 'ul']));
         foreach ($r as $key => $event) {
-            $ul->add(new View(['element' => 'li', 'content' => $event['name']]));
+            $ul->add(new View(['element' => 'li', 'content' => $event['date']->format('D M d - ').$event['name']]));
             $rows++;
         }
         if (!$rows) {
-            $ul->add(new View(['element' => 'li', 'content' => 'No event to display!']));
+            $ul->add(new View(['element' => 'li', 'content' => 'No event for this month!']));
         }
 
         return $view;

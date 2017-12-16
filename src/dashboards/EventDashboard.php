@@ -21,7 +21,7 @@ class EventDashboard extends DashboardComponent
     {
         parent::init();
 
-        $this->optionModel = new Options($this->app->plugin->getDbConnection());
+        $this->optionModel = new Options($this->getDbConnection());
         $this->options = $this->optionModel->getOptionValue('atk4wp-event-options', null);
 
         $this->eventNumberField = new \atkwp\ui\WpInput(
@@ -44,7 +44,7 @@ class EventDashboard extends DashboardComponent
 
     public function doDisplayMode()
     {
-        $m = new models\Event($this->app->plugin->getDbConnection(), ['table' => $this->app->plugin->getDbTableName('event')]);
+        $m = new models\Event($this->getDbConnection(), ['table' => $this->getPluginInstance()->getDbTableName('event')]);
         $m->tryLoadAny()->setOrder('date', 'DESC')->setLimit($this->options[$this->fieldName]);
 
         $this->add('Table')->setModel($m);
@@ -52,7 +52,7 @@ class EventDashboard extends DashboardComponent
 
     public function doConfigureMode()
     {
-        $value = $_POST[$this->fieldName];
+        $value = @$_POST[$this->fieldName];
         if (isset($value)) {
             $this->eventNumberField->setValue($value);
             $this->options[$this->fieldName] = $value;
