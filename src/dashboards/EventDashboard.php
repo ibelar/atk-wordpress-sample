@@ -28,7 +28,7 @@ class EventDashboard extends DashboardComponent
             [
                 'field_name' => $this->fieldName,
                 'field_id'   => $this->fieldName,
-                'value'      => ($this->options[$this->fieldName]) ? $this->options[$this->fieldName] : 2,
+                'value'      => (isset($this->options[$this->fieldName])) ? $this->options[$this->fieldName] : 2,
                 'label'      => 'How many events to display:',
                 'type'       => 'number',
                 'css'        => 'tiny-text',

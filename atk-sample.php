@@ -1,7 +1,7 @@
 <?php
 
 /*
-Plugin Name: Atk Sample
+Plugin Name: Atk Event Sample
 Description:A sample plugin done using atk-wordpress integration with Agile Toolkit (atk4).
 Version: 1.0
 Author: Alain Belair
@@ -19,7 +19,7 @@ if (array_search(ABSPATH . 'wp-admin/includes/plugin.php', get_included_files())
 	require_once ABSPATH . 'wp-admin/includes/plugin.php';
 }
 
-$atk_plugin_name = "myplugin";
+$atk_plugin_name = "atkevent";
 $atk_plugin = __NAMESPACE__."\\Plugin";
 
 
