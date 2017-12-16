@@ -23,6 +23,6 @@ namespace atksample;
 
 $config['widget']['event'] = [
     'uses'          =>  __NAMESPACE__.'\widgets\EventWidget',
-    'title'         => _('Monthly Events'),
+    'title'         => _('Atk Monthly Events'),
     'widget_ops'    => ['classname' =>'', 'description' => 'Display current month events'],
 ];

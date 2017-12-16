@@ -20,7 +20,7 @@ class OptionSubPanel extends PanelComponent
         $form = $this->add(new \atk4\ui\Form('segment'));
         $form->addHeader('Select default category for event');
         $form->addField('category', null, ['enum' =>['Weekly', 'Monthly', 'Yearly']]);
-        $form->model['category'] = $options['event-default'];
+        $form->model['category'] = (isset($options['event-default'])) ? $options['event-default'] : 'Weekly';
 
         $form->onSubmit(function($form) use ($optionModel, $options) {
             $options['event-default'] = $form->model['category'];
