@@ -1,11 +1,14 @@
 <?php
 /**
  * Model Event.
+ * Create a model base on the event table in Db.
  */
 
 namespace atksample\models;
 
-class Event extends \atk4\data\Model
+use \atk4\data\Model;
+
+class Event extends Model
 {
 
 	public function init()

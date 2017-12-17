@@ -27,6 +27,5 @@ class OptionSubPanel extends PanelComponent
             $optionModel->saveOptionValue('atk4wp-event-options', $options);
             return new jsNotify('Options are saved', $this);
         });
-
     }
 }

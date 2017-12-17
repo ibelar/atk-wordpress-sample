@@ -4,7 +4,7 @@
  */
 
 /**
- * insert this code "[atksample-form]" into a page to get the register form.
+ * insert this code "[atksample-form]" into a page to get the register form display in Wp front end.
  */
 
 namespace atksample\shortcodes;
