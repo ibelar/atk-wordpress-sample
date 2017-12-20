@@ -38,10 +38,10 @@
  *
  *========================================================================================================================*/
 
-//insert this code into a page to get the register form: [atksample-form]
+//insert this code into a page to get the register form: [atksample_form]
 namespace atksample;
 
-$config['shortcode']['register'] =    ['name' => 'atksample-form',
+$config['shortcode']['register'] =    ['name' => 'atksample_form',
                                              'uses' => __NAMESPACE__.'\shortcodes\FormShortcode',
                                              'atk'=> true,
                                              'js'   => [],

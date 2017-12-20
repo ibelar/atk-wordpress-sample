@@ -15,7 +15,7 @@
  *
  *  'title'           => (string)(Required) A string holding the title of the dashboard as it appear in the dashboard page.
  *
- *  'configureMode'   => (bool)(optional)   Whether you need configuration for this dashboard widget or not.
+ *  'configureMode'   => (bool)(optional)   Whether you need a configuration view for this dashboard widget or not.
  *
  * ===========================================================================================================*/
 
